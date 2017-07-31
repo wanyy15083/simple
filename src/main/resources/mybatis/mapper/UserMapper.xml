@@ -3,6 +3,6 @@
 <mapper namespace="com.simple.mapper.UserMapper">
 
     <select id="findUserInfo" resultType="com.simple.model.User">
-        select id,name,address,age,telephone from test_user where id=10
+        select id,name,address,age,telephone from test_user where id=1
     </select>
 </mapper>
