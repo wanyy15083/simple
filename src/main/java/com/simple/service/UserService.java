@@ -5,6 +5,7 @@ import com.simple.mapper.UserMapper;
 import com.simple.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,5 +24,13 @@ public class UserService {
     public List<User> listUser() {
         PageHelper.startPage(2, 2);
         return userMapper.listUser();
+    }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void insertUser() {
+        User user = new User(null, "123456", 12, "Shanghai", "小花");
+        userMapper.insertUser(user);
+//        int a = 1/0;
+        userMapper.insertUser(user);
     }
 }

@@ -4,7 +4,12 @@ import org.apache.log4j.Logger;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 /**
  * Created by songyigui on 2016/10/17.
@@ -14,11 +19,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 //@ComponentScan
 //@EnableWebMvc
+@Configuration
 @EnableTransactionManagement
 @SpringBootApplication
 @MapperScan("com.simple.mapper")
 //@ImportResource({"classpath:spring/spring-config.xml"})
-public class Application {
+public class Application extends SpringBootServletInitializer {
     private static Logger logger = Logger.getLogger(Application.class);
 
     //DataSource配置
@@ -82,6 +88,12 @@ public class Application {
 //        return thymeleafViewResolver;
 //    }
 
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(Application.class);
+    }
+
     /**
      * main start
      *
@@ -90,5 +102,13 @@ public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
         logger.info("========== SpringBoot Start Success ==========");
+    }
+
+    @Bean
+    public CharacterEncodingFilter characterEncodingFilter() {
+        final CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return characterEncodingFilter;
     }
 }

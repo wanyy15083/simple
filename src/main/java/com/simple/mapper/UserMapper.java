@@ -11,4 +11,6 @@ public interface UserMapper {
     public User findUserInfo();
 
     List<User> listUser();
+
+    void insertUser(User user);
 }

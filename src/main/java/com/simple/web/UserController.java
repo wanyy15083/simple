@@ -59,4 +59,9 @@ public class UserController {
         return list;
     }
 
+    @RequestMapping("insertUser")
+    public void insertUser(){
+        userService.insertUser();
+    }
+
 }
