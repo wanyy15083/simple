@@ -5,4 +5,7 @@
     <select id="findUserInfo" resultType="com.simple.model.User">
         select id,name,address,age,telephone from test_user where id=1
     </select>
+    <select id="listUser" resultType="com.simple.model.User">
+        select id,name,address,age,telephone from test_user
+    </select>
 </mapper>

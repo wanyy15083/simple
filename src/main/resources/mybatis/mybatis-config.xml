@@ -4,18 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<settings>
-		<!-- 开启驼峰自动映射 -->
-		<setting name="mapUnderscoreToCamelCase" value="true" />
-	</settings>
+	<!--<settings>-->
+		<!--&lt;!&ndash; 开启驼峰自动映射 &ndash;&gt;-->
+		<!--<setting name="mapUnderscoreToCamelCase" value="true" />-->
+	<!--</settings>-->
 
-	<plugins>
-		<!-- 分页组件 -->
-		<plugin interceptor="com.github.pagehelper.PageInterceptor">
-			<property name="helperDialect" value="mysql" />
-			<property name="supportMethodsArguments" value="true"/>
-			<property name="pageSizeZero" value="true"/>
-		</plugin>
-	</plugins>
+	<!--<plugins>-->
+		<!--&lt;!&ndash; 分页组件 &ndash;&gt;-->
+		<!--<plugin interceptor="com.github.pagehelper.PageInterceptor">-->
+			<!--<property name="helperDialect" value="mysql" />-->
+			<!--<property name="supportMethodsArguments" value="true"/>-->
+			<!--<property name="pageSizeZero" value="true"/>-->
+		<!--</plugin>-->
+	<!--</plugins>-->
 
 </configuration>
