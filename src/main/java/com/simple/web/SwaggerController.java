@@ -1,14 +1,9 @@
 package com.simple.web;
 
-import com.simple.model.User;
-import com.wordnik.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.simple.model.*;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by songyigui on 2016/10/17.
@@ -17,7 +12,7 @@ import java.util.List;
 @RequestMapping(value = "/users")
 public class SwaggerController {
 
-    @ApiOperation(value = "Get All User", notes = "requires nothing")
+//    @ApiOperation(value = "Get All User", notes = "requires nothing")
     @RequestMapping(method = RequestMethod.GET)
     public List<User> getUsers() {
         List<User> list = new ArrayList<User>();
@@ -30,7 +25,7 @@ public class SwaggerController {
         return list;
     }
 
-    @ApiOperation(value = "Get User with id",notes = "requires the id of user")
+//    @ApiOperation(value = "Get User with id",notes = "requires the id of user")
     @RequestMapping(value="/{name}",method = RequestMethod.GET)
     public User getUserById(@PathVariable String name){
         User user = new User();

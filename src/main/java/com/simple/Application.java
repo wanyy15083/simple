@@ -1,15 +1,15 @@
 package com.simple;
 
-import org.apache.log4j.Logger;
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.filter.CharacterEncodingFilter;
+import org.mybatis.spring.annotation.*;
+import org.slf4j.*;
+import org.springframework.boot.*;
+import org.springframework.boot.autoconfigure.*;
+import org.springframework.boot.autoconfigure.jdbc.*;
+import org.springframework.boot.builder.*;
+import org.springframework.boot.web.servlet.support.*;
+import org.springframework.context.annotation.*;
+import org.springframework.transaction.annotation.*;
+import org.springframework.web.filter.*;
 
 /**
  * Created by songyigui on 2016/10/17.
@@ -23,9 +23,10 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 @EnableTransactionManagement
 @SpringBootApplication
 @MapperScan("com.simple.mapper")
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, DataSourceTransactionManagerAutoConfiguration.class})
 //@ImportResource({"classpath:spring/spring-config.xml"})
 public class Application extends SpringBootServletInitializer {
-    private static Logger logger = Logger.getLogger(Application.class);
+    private static Logger logger = LoggerFactory.getLogger(Application.class);
 
     //DataSource配置
 //    @Bean

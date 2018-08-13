@@ -1,23 +1,21 @@
 package com.simple.web;
 
-import com.simple.model.User;
-import com.simple.service.UserService;
-import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import com.simple.model.*;
+import com.simple.service.*;
+import org.slf4j.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import org.springframework.ui.*;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by songyigui on 2016/10/17.
  */
 @Controller
 public class UserController {
-    private Logger logger = Logger.getLogger(HelloController.class);
+    private Logger logger = LoggerFactory.getLogger(HelloController.class);
 
     @Autowired
     private UserService userService;
